@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="register">
-Login: <input type = "text" name = "user_name" /> <br/><br/>
+<form action="Register" method = "post">
+Login: <input type = "text" name = "user_login" /> <br/><br/>
 Password: <input type = "password" name = "user_password" /> <br/><br/>
 Repeat password: <input type = "password" name = "user_rep_password" /> <br/><br/>
 First name: <input type = "text" name = "user_firstname" /> <br/><br/>
 Last name: <input type = "text" name = "user_lastname" /> <br/><br/>
-E-mail: <input type = "email" name = "user_name" /> <br/><br/>
+E-mail: <input type = "email" name = "user_email" /> <br/><br/>
 
 <button type="submit">Register</button>
 </form>

@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>Servlets.Register</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginValidation</servlet-name>
+  	<display-name>LoginValidation</display-name>
+  	<description></description>
+  	<servlet-class>Servlets.LoginValidation</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Register</servlet-name>
   	<url-pattern>/Register</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginValidation</servlet-name>
+  	<url-pattern>/LoginValidation</url-pattern>
   </servlet-mapping>
 </web-app>

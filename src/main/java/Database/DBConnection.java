@@ -10,8 +10,8 @@ public class DBConnection {
 	private static String USER = "root";
 	private static String PASSWORD = "123";
 	
-	public void getConnection() {
-		Connection connection;
+	public static Connection getConnection() {
+		Connection connection = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = (Connection) DriverManager.getConnection(URL, USER, PASSWORD);
@@ -19,6 +19,7 @@ public class DBConnection {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return connection;
 	}
 
 }

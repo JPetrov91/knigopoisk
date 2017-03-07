@@ -10,16 +10,16 @@ import Database.UserDAO;
 import Models.User;
 
 /**
- * Servlet implementation class Register
+ * Servlet implementation class LoginValidation
  */
-public class Register extends HttpServlet {
+public class LoginValidation extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public UserDAO userDao = new UserDAO();
+	UserDAO userDAO = new UserDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Register() {
+    public LoginValidation() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,19 +37,19 @@ public class Register extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		User user = new User();
-		String login, password, firstname, lastname, email;
+		String login, password;
 		login = request.getParameter("user_login");
 		password = request.getParameter("user_password");
-		firstname = request.getParameter("user_firstname");
-		lastname = request.getParameter("user_lastname");
-		email = request.getParameter("user_email");
-		user.setLogin(login);
-		user.setPassword(password);
-		user.setFirstName(firstname);
-		user.setLastName(lastname);
-		user.setEmail(email);
-		userDao.create(user);
+		User user = userDAO.getByLogin(login);
+		if(user == null) response.getWriter().append("Login or password is incorrect");
+		System.out.println(user.getPassword());
+		if(password.equals(user.getPassword())) {
+			response.getWriter().append("Login is succesful");
+			response.sendRedirect("index.jsp");
+		}
+		else {
+			response.getWriter().append("Login or password is incorrect");
+		}
 	}
 
 }
